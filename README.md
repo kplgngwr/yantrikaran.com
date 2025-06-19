@@ -1,12 +1,83 @@
-# React + Vite
+# Yantrikaran - Modern Automation & IoT Solutions
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive website for Yantrikaran, a company specializing in automation, IoT, software development, and robotics engineering solutions.
 
-Currently, two official plugins are available:
+![Yantrikaran](https://via.placeholder.com/1200x630/0B3D91/FFFFFF?text=Yantrikaran)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- **Modern Design**: Sleek, professional UI with animations and transitions
+- **Fully Responsive**: Works on all devices from mobile to desktop
+- **Animation-Rich**: Smooth scroll effects, hover states, and page transitions
+- **Component-Based**: Modular architecture for easy maintenance
+- **Optimized Performance**: Fast loading times and efficient rendering
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+- **React**: UI library for building component-based interfaces
+- **Vite**: Next-generation frontend tooling for fast development
+- **Tailwind CSS**: Utility-first CSS framework
+- **Framer Motion**: Animation library for React
+- **React Router**: Routing library for React applications
+- **AOS**: Animate on scroll library for scroll animations
+- **Swiper**: Modern mobile touch slider
+- **React Icons**: Icon library for React applications
+
+## 🔧 Installation & Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/kplgngwr/yantrikaran.com.git
+   cd yantrikaran.com
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Build for production:
+   ```bash
+   npm run build
+   ```
+
+## 📁 Project Structure
+
+```
+yantrikaran.com/
+├── public/              # Static files
+├── src/
+│   ├── assets/          # Images, fonts and other assets
+│   ├── components/      # Reusable components
+│   │   ├── layout/      # Layout components (Navbar, Footer)
+│   │   └── utils/       # Utility components
+│   ├── pages/           # Page components
+│   ├── App.jsx          # Main App component with routes
+│   ├── main.jsx         # Entry point
+│   └── index.css        # Global styles
+├── index.html           # HTML template
+├── tailwind.config.js   # Tailwind CSS configuration
+├── postcss.config.js    # PostCSS configuration
+└── vite.config.js       # Vite configuration
+```
+
+## 📱 Pages
+
+- **Home**: Company introduction with hero section, services overview, and testimonials
+- **About**: Company history, team, and mission/vision
+- **Services**: Detailed information about offered services
+- **Projects**: Portfolio of completed projects
+- **Contact**: Contact form and company information
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
