@@ -2,7 +2,7 @@
 
 A modern, responsive website for Yantrikaran, a company specializing in automation, IoT, software development, and robotics engineering solutions.
 
-![Yantrikaran](https://via.placeholder.com/1200x630/0B3D91/FFFFFF?text=Yantrikaran)
+![Yantrikaran](https://yantrikaran-com.vercel.app/)
 
 ## 🚀 Features
 
