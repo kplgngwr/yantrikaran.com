@@ -67,8 +67,7 @@ const Home = () => {
                 {/* Placeholder for hero image - replace with your actual image */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary to-accent rounded-lg opacity-20 blur-xl"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-6xl">🤖</div>
-                  <p className="text-center text-lg mt-4">Your company logo/image will go here</p>
+                  <img src="/yi.png" alt="Hero" className="object-cover rounded-lg" />
                 </div>
               </div>
             </motion.div>
@@ -83,9 +82,9 @@ const Home = () => {
             viewport={{ once: true, amount: 0.3 }}
           >
             {[
-              { value: '10+', label: 'Years Experience' },
-              { value: '50+', label: 'Projects Completed' },
-              { value: '30+', label: 'Happy Clients' },
+              { value: '2+', label: 'Years Experience' },
+              { value: '10+', label: 'Projects Completed' },
+              { value: '2+', label: 'Happy Clients' },
               { value: '4', label: 'Service Categories' },
             ].map((stat, index) => (
               <motion.div 
@@ -202,62 +201,69 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section className="section bg-white" id="about">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              className="relative"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+        <section className="section bg-white" id="about">
+          <div className="container-custom">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <motion.div
+            className="relative"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeIn}
+          >
+            <div className="relative w-full h-[420px] rounded-lg overflow-hidden shadow-2xl">
+              <img
+            src="/team.jpeg"
+            alt="Our Team"
+            className="w-full h-full object-cover"
+              />
+              {/* subtle dark gradient for legibility */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none"></div>
+
+              {/* decorative accent */}
+              <div className="absolute -top-8 -right-8 w-28 h-28 rounded-lg transform rotate-12 opacity-80 bg-gradient-to-br from-primary to-accent blur-sm pointer-events-none"></div>
+            </div>
+          </motion.div>
+          
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={staggerContainer}
+          >
+            <motion.h2 
+              className="text-3xl md:text-4xl font-heading font-bold mb-6"
               variants={fadeIn}
             >
-              <div className="relative w-full h-[400px] rounded-lg overflow-hidden">
-                {/* Placeholder for about image - replace with your actual image */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <p className="text-center text-lg">Your company image will go here</p>
-                </div>
-              </div>
-              <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-primary/10 rounded-lg"></div>
-            </motion.div>
-            
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={staggerContainer}
+              About Yantrikaran
+            </motion.h2>
+            <motion.p 
+              className="text-gray-600 mb-6"
+              variants={fadeIn}
             >
-              <motion.h2 
-                className="text-3xl md:text-4xl font-heading font-bold mb-6"
-                variants={fadeIn}
-              >
-                About Yantrikaran
-              </motion.h2>
-              <motion.p 
-                className="text-gray-600 mb-6"
-                variants={fadeIn}
-              >
-                Yantrikaran is a leading technology company specializing in automation, IoT, software development, and robotics services. We combine innovation with expertise to deliver cutting-edge solutions that drive business growth and operational excellence.
-              </motion.p>
-              <motion.p 
-                className="text-gray-600 mb-8"
-                variants={fadeIn}
-              >
-                Our team of skilled engineers and developers work closely with clients to understand their unique challenges and create tailored solutions that exceed expectations.
-              </motion.p>
-              <motion.div variants={fadeIn}>
-                <Link to="/about" className="btn-primary">
-                  Learn More About Us
-                </Link>
-              </motion.div>
+              Yantrikaran is a leading technology company specializing in automation, IoT, software development, and robotics services. We combine innovation with expertise to deliver cutting-edge solutions that drive business growth and operational excellence.
+            </motion.p>
+            <motion.p 
+              className="text-gray-600 mb-8"
+              variants={fadeIn}
+            >
+              Our team of skilled engineers and developers work closely with clients to understand their unique challenges and create tailored solutions that exceed expectations.
+            </motion.p>
+            <motion.div className="flex items-center gap-4" variants={fadeIn}>
+              <Link to="/about" className="btn-primary">
+            Learn More About Us
+              </Link>
+              <Link to="/careers" className="btn-outline">
+            Join Our Team
+              </Link>
             </motion.div>
+          </motion.div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Projects Section */}
-      <section className="section bg-gray-50">
+        {/* Projects Section */}
+            <section className="section bg-gray-50">
         <div className="container-custom">
           <motion.div 
             className="text-center max-w-3xl mx-auto mb-16"
@@ -289,31 +295,31 @@ const Home = () => {
           >
             {[
               {
-                title: 'Smart Factory Automation',
-                category: 'Automation',
-                image: 'factory.jpg',
-                link: '/projects/smart-factory'
+          title: 'Smart Factory Automation',
+          category: 'Automation',
+          image: 'factory.jpg',
+          link: '/projects/smart-factory'
               },
               {
-                title: 'IoT-Based Monitoring System',
-                category: 'IoT',
-                image: 'iot-monitoring.jpg',
-                link: '/projects/iot-monitoring'
+          title: 'IoT-Based Monitoring System',
+          category: 'IoT',
+          image: 'iot-monitoring.jpg',
+          link: '/projects/iot-monitoring'
               },
               {
-                title: 'Custom ERP Solution',
-                category: 'Software',
-                image: 'erp-software.jpg',
-                link: '/projects/erp-solution'
+          title: 'Custom ERP Solution',
+          category: 'Software',
+          image: 'erp-software.jpg',
+          link: '/projects/erp-solution'
               },
             ].map((project, index) => (
               <motion.div 
-                key={index}
-                variants={fadeIn}
-                className="card overflow-hidden group"
+          key={index}
+          variants={fadeIn}
+          className="card overflow-hidden group"
               >
-                <div className="relative h-64 bg-gray-200">
-                  {/* Placeholder for project image - replace with your actual image */}
+          <div className="relative h-64 bg-gray-200">
+            {/* Placeholder for project image - replace with your actual image */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <p className="text-center">Project image will go here</p>
                   </div>
