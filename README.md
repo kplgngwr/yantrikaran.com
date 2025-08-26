@@ -57,6 +57,11 @@ yantrikaran.com/
 │   │   ├── layout/      # Layout components (Navbar, Footer)
 │   │   └── utils/       # Utility components
 │   ├── pages/           # Page components
+│   │    ├── About/      
+│   │    ├── contact/ 
+│   │    ├── Home/      
+│   │    ├── Projects/ 
+│   │    └── Services
 │   ├── App.jsx          # Main App component with routes
 │   ├── main.jsx         # Entry point
 │   └── index.css        # Global styles

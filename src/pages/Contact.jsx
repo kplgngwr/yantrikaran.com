@@ -143,7 +143,7 @@ const Contact = () => {
               </div>
               <h3 className="text-xl font-heading font-bold mb-2">Phone</h3>
               <p className="text-gray-600 mb-2">Call us directly at</p>
-              <a href="tel:+919876543210" className="text-primary font-medium">+91 80901 44807</a>
+              <a href="tel:+918090144807" className="text-primary font-medium">+91 80901 44807</a>
             </motion.div>
 
             <motion.div
@@ -157,7 +157,7 @@ const Contact = () => {
               </div>
               <h3 className="text-xl font-heading font-bold mb-2">Email</h3>
               <p className="text-gray-600 mb-2">Send us an email at</p>
-              <a href="mailto:info@yantrikaran.com" className="text-primary font-medium">contact@yantrikaran.com</a>
+              <a href="mailto:contact@yantrikaran.com" className="text-primary font-medium">contact@yantrikaran.com</a>
             </motion.div>
 
             <motion.div
