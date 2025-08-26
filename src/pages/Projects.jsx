@@ -134,7 +134,8 @@ const Projects = () => {
                       className="w-full h-full object-cover block"
                       onError={(e) => {
                         e.currentTarget.onerror = null;
-                        e.currentTarget.src = `/assets/placeholder-project.jpg`;
+                        e.currentTarget.src =
+                          "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Crect width='800' height='600' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='18' fill='%239ca3af'%3EImage unavailable%3C/text%3E%3C/svg%3E";
                       }}
                       />
 
