@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 // Animation variants
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: { duration: 0.6 }
   }
@@ -31,7 +31,7 @@ const Contact = () => {
     subject: '',
     message: ''
   });
-  
+
   const [formStatus, setFormStatus] = useState({
     submitted: false,
     success: false,
@@ -50,14 +50,14 @@ const Contact = () => {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     // Simulate form submission
     setFormStatus({
       submitted: true,
       success: true,
       message: 'Thank you for your message! We will get back to you soon.'
     });
-    
+
     // Reset form after successful submission
     setFormData({
       name: '',
@@ -67,7 +67,7 @@ const Contact = () => {
       subject: '',
       message: ''
     });
-    
+
     // In a real application, you would send the form data to a server here
     // Example:
     // fetch('/api/contact', {
@@ -102,17 +102,17 @@ const Contact = () => {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 bg-gray-50">
         <div className="container-custom">
-          <motion.div 
+          <motion.div
             className="max-w-3xl mx-auto text-center"
             variants={staggerContainer}
           >
-            <motion.h1 
+            <motion.h1
               className="text-4xl md:text-5xl font-heading font-bold mb-6"
               variants={fadeIn}
             >
               Contact Us
             </motion.h1>
-            <motion.p 
+            <motion.p
               className="text-xl text-gray-600 mb-8"
               variants={fadeIn}
             >
@@ -125,14 +125,14 @@ const Contact = () => {
       {/* Contact Information */}
       <section className="section bg-white">
         <div className="container-custom">
-          <motion.div 
+          <motion.div
             className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainer}
           >
-            <motion.div 
+            <motion.div
               className="card p-6 text-center hover:shadow-xl transition-all duration-300"
               variants={fadeIn}
             >
@@ -143,10 +143,10 @@ const Contact = () => {
               </div>
               <h3 className="text-xl font-heading font-bold mb-2">Phone</h3>
               <p className="text-gray-600 mb-2">Call us directly at</p>
-              <a href="tel:+919876543210" className="text-primary font-medium">+91 9876 543 210</a>
+              <a href="tel:+919876543210" className="text-primary font-medium">+91 80901 44807</a>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="card p-6 text-center hover:shadow-xl transition-all duration-300"
               variants={fadeIn}
             >
@@ -157,10 +157,10 @@ const Contact = () => {
               </div>
               <h3 className="text-xl font-heading font-bold mb-2">Email</h3>
               <p className="text-gray-600 mb-2">Send us an email at</p>
-              <a href="mailto:info@yantrikaran.com" className="text-primary font-medium">info@yantrikaran.com</a>
+              <a href="mailto:info@yantrikaran.com" className="text-primary font-medium">contact@yantrikaran.com</a>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="card p-6 text-center hover:shadow-xl transition-all duration-300"
               variants={fadeIn}
             >
@@ -173,8 +173,8 @@ const Contact = () => {
               <h3 className="text-xl font-heading font-bold mb-2">Location</h3>
               <p className="text-gray-600 mb-2">Visit our office at</p>
               <address className="not-italic text-primary font-medium">
-                123 Tech Park, Sector 15<br />
-                Gurugram, Haryana 122001
+                Gurlal Apartment, Ground Floor, Rurkee Pukhta<br />
+                Mohali, Punjab 140413
               </address>
             </motion.div>
           </motion.div>
@@ -198,7 +198,7 @@ const Contact = () => {
               </motion.div>
 
               {formStatus.submitted && (
-                <motion.div 
+                <motion.div
                   className={`p-4 mb-6 rounded-lg ${formStatus.success ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -207,7 +207,7 @@ const Contact = () => {
                 </motion.div>
               )}
 
-              <motion.form 
+              <motion.form
                 onSubmit={handleSubmit}
                 variants={staggerContainer}
                 className="space-y-6"
@@ -313,29 +313,16 @@ const Contact = () => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
               variants={fadeIn}
-              className="h-full min-h-[400px] rounded-lg overflow-hidden"
+              className="rounded-lg overflow-hidden"
             >
-              {/* Placeholder for Google Map - replace with actual Google Maps embed */}
-              <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <svg className="w-12 h-12 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  <p className="text-gray-600 mb-2">Google Maps will be embedded here</p>
-                  <p className="text-sm text-gray-500">Replace with your actual Google Maps embed code</p>
-                </div>
-              </div>
-              {/* Actual Google Maps embed would look like this: */}
-              {/* <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!...your-embed-code-here" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen="" 
-                loading="lazy" 
+              <iframe
+                title="Yantrikaran Office Location"
+                src="https://www.google.com/maps?q=30.762378158710984,76.59829715254712&z=16&output=embed"
+                className="w-full h-[420px] md:h-[500px] lg:h-[560px] border-0"
+                allowFullScreen
+                loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-              ></iframe> */}
+              />
             </motion.div>
           </div>
         </div>
@@ -344,20 +331,20 @@ const Contact = () => {
       {/* FAQ Section */}
       <section className="section bg-white">
         <div className="container-custom">
-          <motion.div 
+          <motion.div
             className="text-center max-w-3xl mx-auto mb-16"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainer}
           >
-            <motion.h2 
+            <motion.h2
               className="text-3xl md:text-4xl font-heading font-bold mb-4"
               variants={fadeIn}
             >
               Frequently Asked Questions
             </motion.h2>
-            <motion.p 
+            <motion.p
               className="text-xl text-gray-600"
               variants={fadeIn}
             >
@@ -365,7 +352,7 @@ const Contact = () => {
             </motion.p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="grid grid-cols-1 md:grid-cols-2 gap-8"
             initial="hidden"
             whileInView="visible"
@@ -398,7 +385,7 @@ const Contact = () => {
                 answer: 'Our pricing is project-based and depends on the scope, complexity, and specific requirements of each solution. We provide detailed quotes after an initial consultation and needs assessment.'
               },
             ].map((faq, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 variants={fadeIn}
                 className="card p-6 hover:shadow-lg transition-all duration-300"
@@ -414,34 +401,34 @@ const Contact = () => {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-primary to-accent text-white">
         <div className="container-custom">
-          <motion.div 
+          <motion.div
             className="text-center max-w-3xl mx-auto"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainer}
           >
-            <motion.h2 
+            <motion.h2
               className="text-3xl md:text-4xl font-heading font-bold mb-6"
               variants={fadeIn}
             >
               Ready to Transform Your Business?
             </motion.h2>
-            <motion.p 
+            <motion.p
               className="text-xl mb-8"
               variants={fadeIn}
             >
               Contact us today to schedule a consultation with our experts and discover how our solutions can drive innovation and growth for your business.
             </motion.p>
             <motion.div variants={fadeIn} className="flex flex-wrap justify-center gap-4">
-              <a 
-                href="tel:+919876543210" 
+              <a
+                href="tel:+8090144807"
                 className="btn bg-white text-primary hover:bg-white/90 text-lg px-8 py-4"
               >
                 Call Us Now
               </a>
-              <a 
-                href="mailto:info@yantrikaran.com" 
+              <a
+                href="mailto:contact@yantrikaran.com"
                 className="btn bg-transparent border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-4"
               >
                 Email Us
