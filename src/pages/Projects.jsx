@@ -117,7 +117,7 @@ const Projects = () => {
                     ? (project.image.startsWith('http') || project.image.startsWith('//')
                       ? project.image
                       : `/src/assets/projects/${project.image}`)
-                    : `/src/assets/placeholder-project.jpg`;
+                    : `/src/assets/projects/${project.image}`;
 
                   return (
                     <motion.div 
