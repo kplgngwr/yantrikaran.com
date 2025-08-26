@@ -116,8 +116,8 @@ const Projects = () => {
                   const imgSrc = project.image
                     ? (project.image.startsWith('http') || project.image.startsWith('//')
                       ? project.image
-                      : `/assets/projects/${project.image}`)
-                    : `/assets/projects/${project.image}`;
+                      : `${project.image}`)
+                    : `${project.image}`;
 
                   return (
                     <motion.div 
@@ -130,7 +130,9 @@ const Projects = () => {
                       <img
                       src={imgSrc}
                       alt={project.title}
-                      loading="lazy"
+                      loading="eager"
+                      decoding="async"
+                      fetchPriority="high"
                       className="w-full h-full object-cover block"
                       onError={(e) => {
                         e.currentTarget.onerror = null;
