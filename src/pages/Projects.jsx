@@ -116,8 +116,8 @@ const Projects = () => {
                   const imgSrc = project.image
                     ? (project.image.startsWith('http') || project.image.startsWith('//')
                       ? project.image
-                      : `/src/assets/projects/${project.image}`)
-                    : `/src/assets/projects/${project.image}`;
+                      : `/assets/projects/${project.image}`)
+                    : `/assets/projects/${project.image}`;
 
                   return (
                     <motion.div 
@@ -134,7 +134,7 @@ const Projects = () => {
                       className="w-full h-full object-cover block"
                       onError={(e) => {
                         e.currentTarget.onerror = null;
-                        e.currentTarget.src = `/src/assets/projects/${project.image}`;
+                        e.currentTarget.src = `/assets/placeholder-project.jpg`;
                       }}
                       />
 
