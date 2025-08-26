@@ -134,7 +134,7 @@ const Projects = () => {
                       className="w-full h-full object-cover block"
                       onError={(e) => {
                         e.currentTarget.onerror = null;
-                        e.currentTarget.src = `/assets/placeholder-project.jpg`;
+                        e.currentTarget.src = `/src/assets/projects/${project.image}`;
                       }}
                       />
 
