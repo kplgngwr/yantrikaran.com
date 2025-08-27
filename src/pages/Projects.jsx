@@ -34,7 +34,7 @@ const Projects = () => {
       title: 'Hybrid Swarm Drones',
       category: 'Automation',
       description: 'Implemented a comprehensive automation solution for a manufacturing plant, resulting in a 35% increase in productivity and 20% reduction in operational costs.',
-      image: 'project1.jpg',
+      image: '/project1.jpg',
       client: 'cuconnect private ltd.',
       year: '2024',
       technologies: [ 'computer vision', 'Industrial IoT', 'Machine Learning'],
