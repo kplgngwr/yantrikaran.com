@@ -295,22 +295,10 @@ const Home = () => {
           >
             {[
               {
-          title: 'Smart Factory Automation',
+          title: 'Hybrid Underwater Drones',
           category: 'Automation',
-          image: 'factory.jpg',
-          link: '/projects/smart-factory'
-              },
-              {
-          title: 'IoT-Based Monitoring System',
-          category: 'IoT',
-          image: 'iot-monitoring.jpg',
-          link: '/projects/iot-monitoring'
-              },
-              {
-          title: 'Custom ERP Solution',
-          category: 'Software',
-          image: 'erp-software.jpg',
-          link: '/projects/erp-solution'
+          image: '/project1.jpg',
+          link: '/projects'
               },
             ].map((project, index) => (
               <motion.div 
@@ -321,7 +309,7 @@ const Home = () => {
           <div className="relative h-64 bg-gray-200">
             {/* Placeholder for project image - replace with your actual image */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <p className="text-center">Project image will go here</p>
+                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
