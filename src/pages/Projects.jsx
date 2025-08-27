@@ -26,17 +26,60 @@ const Projects = () => {
   // Project categories
   const categories = ['All', 'Automation', 'IoT', 'Software', 'Robotics'];
   const [activeCategory, setActiveCategory] = useState('All');
+  const [activeModel, setActiveModel] = useState('/project1.glb?v=1');
+
+  // Inline 3D viewer component (no new files)
+  const ModelViewer3D = ({ src, height = 500 }) => {
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    if (!src) {
+      return (
+        <div className="h-64 flex items-center justify-center text-gray-600">No model available</div>
+      );
+    }
+
+    return (
+      <div className="relative rounded-lg overflow-hidden bg-gray-100" style={{ height }}>
+        {loading && (
+          <div className="absolute inset-0 flex items-center justify-center text-gray-600">
+            Loading..
+          </div>
+        )}
+        {error && (
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-red-600 gap-2 p-4 bg-white/60">
+            <p>Failed to load 3D model.</p>
+            <a href={src} target="_blank" rel="noopener" className="text-primary underline">Open source file</a>
+          </div>
+        )}
+        {/* @ts-ignore: model-viewer is a web component */}
+        <model-viewer
+          src={src}
+          alt="Interactive 3D model"
+          camera-controls
+          auto-rotate
+          exposure="0.9"
+          shadow-intensity="1"
+          environment-image="neutral"
+          style={{ width: '100%', height: '100%' }}
+          onLoad={() => setLoading(false)}
+          onError={() => { setLoading(false); setError(true); }}
+        />
+      </div>
+    );
+  };
 
   // Sample projects data
   const projects = [
     {
       id: 1,
-      title: 'Hybrid Swarm Drones',
+      title: 'Hybrid Underwater Drones',
       category: 'Automation',
       description: 'Implemented a comprehensive automation solution for a manufacturing plant, resulting in a 35% increase in productivity and 20% reduction in operational costs.',
       image: '/project1.jpg',
-      client: 'cuconnect private ltd.',
-      year: '2024',
+  modelSrc: '/project1.glb?v=1',
+      client: 'softgear private ltd.',
+      year: '2024,2025',
       technologies: [ 'computer vision', 'Industrial IoT', 'Machine Learning'],
       highlights: [
         'Automated production line with real-time monitoring',
@@ -123,6 +166,15 @@ const Projects = () => {
                     <motion.div 
                     key={project.id}
                     className="card overflow-hidden group cursor-pointer bg-white rounded-lg shadow"
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        setActiveModel(project.modelSrc || '/project1.glb?v=1');
+                      }
+                    }}
+                    onClick={() => setActiveModel(project.modelSrc || '/project1.glb?v=1')}
                     variants={fadeIn}
                     whileHover={{ y: -5 }}
                     >
@@ -212,12 +264,10 @@ const Projects = () => {
               variants={staggerContainer}
             >
               <motion.div variants={fadeIn}>
-                <div className="relative w-full h-[500px] rounded-lg overflow-hidden">
-                  {/* Placeholder for featured project image - replace with your actual image */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-accent/30"></div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <p className="text-center text-lg">Featured project image will go here</p>
-                  </div>
+                <ModelViewer3D src={activeModel} height={500} />
+                <div className="mt-3 flex items-center gap-4">
+                  {/* <a href={activeModel} target="_blank" rel="noopener" className="text-primary underline text-sm">Open full screen</a>
+                  <a href={activeModel} download className="text-gray-700 underline text-sm">Download</a> */}
                 </div>
               </motion.div>
 
