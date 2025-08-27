@@ -71,19 +71,13 @@ const About = () => {
                 className="text-gray-600 mb-4"
                 variants={fadeIn}
               >
-                Founded in [Year], Yantrikaran began with a vision to revolutionize how businesses leverage technology for growth and innovation. What started as a small team of passionate engineers has grown into a comprehensive technology solutions provider.
+                Founded in 2025, Yantrikaran began with a vision to revolutionize how businesses leverage technology for growth and innovation. What started as a small team of passionate engineers has grown into a comprehensive technology solutions provider.
               </motion.p>
               <motion.p 
                 className="text-gray-600 mb-4"
                 variants={fadeIn}
               >
                 Our journey has been defined by continuous learning, adaptation, and a commitment to excellence. We've evolved our services to meet the changing needs of industries while maintaining our core values of innovation, quality, and client satisfaction.
-              </motion.p>
-              <motion.p 
-                className="text-gray-600"
-                variants={fadeIn}
-              >
-                Today, Yantrikaran stands as a trusted partner for businesses seeking to harness the power of automation, IoT, software, and robotics to transform their operations and achieve sustainable growth.
               </motion.p>
             </motion.div>
             
@@ -94,14 +88,13 @@ const About = () => {
               viewport={{ once: true, amount: 0.3 }}
               variants={fadeIn}
             >
-              <div className="relative w-full h-[400px] rounded-lg overflow-hidden">
+              <div className="relative w-full h-[270px] rounded-lg overflow-hidden">
                 {/* Placeholder for about image - replace with your actual image */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <p className="text-center text-lg">Your company history image will go here</p>
+                  <p className="text-center text-lg"><img src="/story.png" alt="About Yantrikaran" className="h-full object-cover" /></p>
                 </div>
               </div>
-              <div className="absolute -bottom-6 -left-6 w-48 h-48 bg-secondary/10 rounded-lg"></div>
             </motion.div>
           </div>
         </div>
@@ -257,22 +250,22 @@ const About = () => {
           >
             {[
               {
-                name: 'John Doe',
-                position: 'CEO & Founder',
-                bio: 'With over 15 years of experience in technology and business leadership, John leads our company vision and strategy.',
-                image: 'team-1.jpg'
+                name: 'Kapil Gangwar',
+                position: 'Founder & COO',
+                bio: 'With a background in industrial engineering and Good experience in automation, Kapil leads our operations with a focus on efficiency and innovation.',
+                image: '/team1.jpg'
               },
               {
-                name: 'Jane Smith',
-                position: 'CTO',
-                bio: 'Jane brings extensive expertise in software architecture and emerging technologies to drive our technical innovation.',
-                image: 'team-2.jpg'
+                name: 'Ashit Rai',
+                position: 'Founder & CEO',
+                bio: 'Ashit is a visionary leader with a passion for technology and entrepreneurship, driving the company\'s strategic direction and growth.',
+                image: 'team2.jpg'
               },
               {
-                name: 'Michael Johnson',
+                name: 'Tarun S',
                 position: 'Head of Robotics',
-                bio: 'Michael\'s background in mechanical engineering and AI has been instrumental in developing our robotics solutions.',
-                image: 'team-3.jpg'
+                bio: 'Tarun\'s background in Electronics & Communication engineering and AI has been instrumental in developing our robotics solutions.',
+                image: 'team3.jpg'
               },
             ].map((member, index) => (
               <motion.div 
@@ -283,7 +276,7 @@ const About = () => {
                 <div className="h-64 bg-gray-200">
                   {/* Placeholder for team member image - replace with your actual image */}
                   <div className="h-full flex items-center justify-center">
-                    <p className="text-center">Team member photo will go here</p>
+                    <p className="text-center"><img src={member.image} alt={member.name} className="h-full object-cover" /></p>
                   </div>
                 </div>
                 <div className="p-6">
