@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Linkedin, Send, CheckCircle2, Database } from 'lucide-react'
+import { Mail, Phone, MapPin, Linkedin, Send, CheckCircle2, Loader2, AlertTriangle, Database } from 'lucide-react'
 import PageTransition from '../components/PageTransition.jsx'
 import PageHero from '../components/PageHero.jsx'
 import { COMPANY } from '../data/content.js'
@@ -9,18 +9,24 @@ const TOPICS = ['Robotics', 'GIS · AI', 'Defence brief', 'Research / collab', '
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', org: '', topic: 'Robotics', message: '' })
-  const [sent, setSent] = useState(false)
+  const [status, setStatus] = useState('idle') // idle | submitting | sent | error
 
   const update = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }))
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault()
-    const subject = encodeURIComponent(`[${form.topic}] Project enquiry — ${form.name}`)
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nOrganisation: ${form.org}\nEmail: ${form.email}\nTopic: ${form.topic}\n\n${form.message}`
-    )
-    window.location.href = `mailto:${COMPANY.email}?subject=${subject}&body=${body}`
-    setSent(true)
+    setStatus('submitting')
+    try {
+      const res = await fetch('/api/enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (!res.ok) throw new Error('Request failed')
+      setStatus('sent')
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -80,10 +86,17 @@ export default function ContactPage() {
 
             <div className="flex items-center justify-between gap-4 pt-2">
               <div className="text-xs text-white/45">By submitting you agree to be contacted at the email provided.</div>
-              <button type="submit" className="btn-primary">
-                {sent ? <><CheckCircle2 size={16} /> Sent</> : <>Send enquiry <Send size={14} /></>}
+              <button type="submit" disabled={status === 'submitting' || status === 'sent'} className="btn-primary disabled:opacity-70">
+                {status === 'sent' && <><CheckCircle2 size={16} /> Sent</>}
+                {status === 'submitting' && <><Loader2 size={16} className="animate-spin" /> Sending…</>}
+                {(status === 'idle' || status === 'error') && <>Send enquiry <Send size={14} /></>}
               </button>
             </div>
+            {status === 'error' && (
+              <div className="flex items-center gap-2 text-xs text-red-300">
+                <AlertTriangle size={14} /> Something went wrong sending your enquiry. Please try again.
+              </div>
+            )}
           </motion.form>
 
           {/* CONTACT INFO */}
